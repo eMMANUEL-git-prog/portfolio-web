@@ -12,8 +12,8 @@ export function Footer() {
               <h3 className="text-lg font-semibold">Emmanuel</h3>
             </div>
             <p className="text-gray-400">
-              Full-stack web developer based in Kenya, passionate about creating
-              innovative web solutions.
+              AI-powered WebApp developer based in Kenya, passionate about
+              creating innovative web solutions.
             </p>
           </div>
 

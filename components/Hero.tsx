@@ -40,7 +40,7 @@ export function Hero() {
 
               <div className="space-y-2">
                 <h2 className="text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300">
-                  AI-Powered Full-Stack Developer
+                  AI-Powered WebApp Developer
                 </h2>
                 <div className="flex flex-wrap gap-2">
                   <Badge
@@ -67,7 +67,7 @@ export function Hero() {
               I craft modern, scalable web applications using cutting-edge AI
               tools and traditional development practices. With{" "}
               <span className="font-semibold text-blue-600 dark:text-blue-400">
-                3+ years
+                5+ years
               </span>{" "}
               of experience and{" "}
               <span className="font-semibold text-purple-600 dark:text-purple-400">
@@ -149,7 +149,7 @@ export function Hero() {
               <div className="absolute inset-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
                 <img
                   src="/placeholder2.jpg?height=300&width=300"
-                  alt="Emmanuel - AI-Powered Full Stack Developer"
+                  alt="Emmanuel - AI-Powered WebApp Developer"
                   className="w-48 h-48 rounded-full object-cover border-4 border-white shadow-lg"
                 />
               </div>
