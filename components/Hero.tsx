@@ -148,7 +148,7 @@ export function Hero() {
               {/* Main profile container */}
               <div className="absolute inset-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
                 <img
-                  src="/placeholder2.jpg?height=300&width=300"
+                  src="/me3.png?height=300&width=300"
                   alt="Emmanuel - AI-Powered WebApp Developer"
                   className="w-48 h-48 rounded-full object-cover border-4 border-white shadow-lg"
                 />
