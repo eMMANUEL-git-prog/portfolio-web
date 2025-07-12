@@ -38,10 +38,10 @@ export function FeaturedProjects() {
       aiEnhanced: true,
     },
     {
-      title: "EcoMart - Smart E-commerce Platform",
+      title: "Bobby Furniture - eCommerce Platform",
       description:
         "Sustainable e-commerce with AI-powered product recommendations, automated inventory management, and smart pricing.",
-      image: "/placeholder2.jpg?height=200&width=300",
+      image: "/projects/bobby.png?height=200&width=300",
       technologies: [
         "Next.js",
         "TypeScript",
@@ -50,7 +50,7 @@ export function FeaturedProjects() {
         "AI Analytics",
       ],
       githubUrl: "https://github.com/emmanuel19727/ecomart-ecommerce",
-      liveUrl: "https://ecomart-kenya.vercel.app",
+      liveUrl: "https://www.bobbyfurniturekenya.com/",
       aiEnhanced: true,
     },
     {
