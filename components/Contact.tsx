@@ -117,7 +117,7 @@ export function Contact() {
                 <div>
                   <p className="font-medium">Phone</p>
                   <p className="text-gray-600 dark:text-gray-300">
-                    +254 700 123 456
+                    +254 713 616 998
                   </p>
                 </div>
               </div>
@@ -137,7 +137,7 @@ export function Contact() {
               <h3 className="text-lg font-semibold mb-4">Why Work With Me?</h3>
               <ul className="space-y-2 text-gray-600 dark:text-gray-300">
                 <li>
-                  • 3+ years of AI-enhanced full-stack development experience
+                  • 5+ years of AI-enhanced full-stack development experience
                 </li>
                 <li>• Expertise in modern web technologies and AI tools</li>
                 <li>• 50% faster development using AI-powered workflows</li>

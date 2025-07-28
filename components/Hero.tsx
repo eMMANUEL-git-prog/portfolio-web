@@ -88,7 +88,7 @@ export function Hero() {
               >
                 <Link href="/projects">
                   <Code className="mr-2 h-5 w-5" />
-                  View My Work
+                  View Projects
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
@@ -108,7 +108,7 @@ export function Hero() {
             <div className="flex items-center space-x-6 pt-4">
               <div className="text-center">
                 <div className="text-2xl font-bold text-gray-900 dark:text-white">
-                  3+
+                  5+
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
                   Years Experience

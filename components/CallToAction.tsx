@@ -28,7 +28,7 @@ export function CallToAction() {
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Build Something Amazing with AI?
+              Ready to Build Something Amazing?
             </h2>
             <p className="text-xl text-white/95 mb-8 max-w-2xl mx-auto">
               Let's combine cutting-edge AI tools with solid development
@@ -45,7 +45,7 @@ export function CallToAction() {
               >
                 <Link href="/contact">
                   <Mail className="mr-2 h-5 w-5" />
-                  Start Your AI-Powered Project
+                  Start Your Project
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
@@ -56,7 +56,7 @@ export function CallToAction() {
                 className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent backdrop-blur-sm"
               >
                 <a
-                  href="https://wa.me/254700123456"
+                  href="https://wa.me/254713616998"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

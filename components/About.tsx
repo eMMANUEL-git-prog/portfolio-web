@@ -83,7 +83,7 @@ export function About() {
             </h2>
             <p className="text-gray-600 dark:text-gray-300">
               Based in the vibrant tech scene of Nairobi, Kenya, I've been
-              crafting digital experiences for over 3 years. My journey began
+              crafting digital experiences for over 5 years. My journey began
               with a curiosity about how websites work, which evolved into a
               deep passion for full-stack development enhanced by cutting-edge
               AI tools.
