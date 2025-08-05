@@ -10,6 +10,11 @@ import {
   Layers,
   GitBranch,
   Server,
+  Globe,
+  Monitor,
+  Loader,
+  CheckCircle,
+  RefreshCcw,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,6 +33,8 @@ interface Project {
   technologies: string[];
   githubUrl: string;
   liveUrl: string;
+  stack: string;
+  status: string;
 }
 
 export function Projects() {
@@ -71,10 +78,10 @@ export function Projects() {
   const sampleProjects: Project[] = [
     {
       _id: "1",
-      title: "TaskFlow - AI-Enhanced Project Management Platform",
+      title: "AmbaleStates - Real Estate Management",
       description:
-        "A comprehensive project management application with AI-powered task suggestions, real-time collaboration, Kanban boards, team chat, file sharing, and advanced analytics. Built with React, Node.js, Socket.io, and PostgreSQL using AI development tools.",
-      image: "/placeholder2.jpg?height=300&width=400",
+        "A real estate management platform designed for seamless property listing, tenant tracking, and lease management. Built with a user-friendly interface and scalable architecture, it empowers property managers and realtors to efficiently handle operations, from property onboarding to client communication.",
+      image: "/projects/ambalestates.png?height=300&width=400",
       technologies: [
         "React",
         "Node.js",
@@ -87,34 +94,38 @@ export function Projects() {
       ],
       githubUrl: "https://github.com/emmanuel19727/taskflow-app",
       liveUrl: "https://taskflow-demo.vercel.app",
+      stack: "Frontend",
+      status: "In Progress",
     },
     {
       _id: "2",
-      title: "EcoMart - AI-Powered Sustainable E-commerce",
+      title: "Bobby Furniture Kenya",
       description:
-        "A full-featured e-commerce platform with AI-driven product recommendations, automated inventory management, and smart pricing. Features user authentication, shopping cart, payment processing with Stripe, and AI-enhanced admin dashboard.",
-      image: "/placeholder2.jpg?height=300&width=400",
+        "Bobby Furniture Kenya is a comprehensive e-commerce platform specializing in furniture retail. It features intuitive product browsing, robust inventory management, and dynamic pricing to enhance operational efficiency and deliver an exceptional customer experience.",
+      image: "/projects/bobby2.png?height=300&width=400",
       technologies: [
-        "Next.js",
-        "TypeScript",
+        "React.js",
+        "Node",
+        "JavaScript",
         "PostgreSQL",
-        "Prisma",
-        "Stripe",
-        "NextAuth",
+        "Express",
+        "JWT",
         "Tailwind CSS",
         "Vercel",
       ],
       githubUrl: "https://github.com/emmanuel19727/ecomart-ecommerce",
-      liveUrl: "https://ecomart-kenya.vercel.app",
+      liveUrl: "https://www.bobbyfurniturekenya.com/",
+      stack: "FullStack",
+      status: "Live",
     },
     {
       _id: "3",
-      title: "FinTracker - Personal Finance Manager",
+      title: "eUNITA - Software Company",
       description:
-        "A comprehensive personal finance application with expense tracking, budget planning, financial goal setting, and detailed analytics. Includes data visualization, recurring transactions, and export functionality.",
-      image: "/placeholder2.jpg?height=300&width=400",
+        "eUNITA is a modern software development company I founded, focused on building scalable, user-centric digital solutions. From web and mobile apps to backend systems, eUNITA emphasizes clean code, efficient architecture, and innovation-driven development.",
+      image: "/projects/eunita.png?height=300&width=400",
       technologies: [
-        "React",
+        "Next.js",
         "Node.js",
         "PostgreSQL",
         "Express",
@@ -125,13 +136,15 @@ export function Projects() {
       ],
       githubUrl: "https://github.com/emmanuel19727/fintracker-app",
       liveUrl: "https://fintracker-demo.netlify.app",
+      stack: "FullStack",
+      status: "Completed",
     },
     {
       _id: "4",
-      title: "DevConnect - Developer Community Platform",
+      title: "COLMAN - Saas Company",
       description:
-        "A social platform for developers to connect, share projects, collaborate on code, and participate in coding challenges. Features real-time messaging, code sharing, project showcases, and skill-based matching.",
-      image: "/placeholder2.jpg?height=300&width=400",
+        "COLMAN is a modern software development company focused on delivering tailored digital solutions across various industries. With a strong emphasis on performance, scalability, and clean design, COLMAN specializes in web and mobile applications built with cutting-edge technologies like the PERN stack and Next.js.",
+      image: "/projects/colman.png?height=300&width=400",
       technologies: [
         "Next.js",
         "TypeScript",
@@ -144,13 +157,15 @@ export function Projects() {
       ],
       githubUrl: "https://github.com/emmanuel19727/devconnect-platform",
       liveUrl: "https://devconnect-kenya.vercel.app",
+      stack: "FullStack",
+      status: "In Progress",
     },
     {
       _id: "5",
-      title: "WeatherWise - Advanced Weather Dashboard",
+      title: "Medicare - Clinical Website",
       description:
-        "An intelligent weather application with location-based forecasts, weather alerts, historical data analysis, and agricultural insights for Kenyan farmers. Includes offline functionality and SMS notifications.",
-      image: "/placeholder2.jpg?height=300&width=400",
+        "Medicare is a modern clinical web platform designed to streamline patient care and medical workflows. It offers features like online appointment booking, patient records management, doctor profiles, and real-time availability. Built using the PERN stack with a responsive frontend powered by Next.js, Medicare ensures a seamless and secure experience for both patients and healthcare providers.",
+      image: "/projects/medicare.png?height=300&width=400",
       technologies: [
         "React",
         "Node.js",
@@ -163,6 +178,8 @@ export function Projects() {
       ],
       githubUrl: "https://github.com/emmanuel19727/weatherwise-app",
       liveUrl: "https://weatherwise-kenya.netlify.app",
+      stack: "FullStack",
+      status: "In Progress",
     },
     {
       _id: "6",
@@ -182,24 +199,44 @@ export function Projects() {
       ],
       githubUrl: "https://github.com/emmanuel19727/learnhub-platform",
       liveUrl: "https://learnhub-africa.vercel.app",
+      stack: "FullStack",
+      status: "In Progress",
     },
   ];
+
+  const getBgClass = (status: string): string => {
+    if (status === "Live") return "bg-green-500";
+    if (status === "In Progress") return "bg-yellow-500";
+    if (status === "Completed") return "bg-blue-500";
+    return "bg-gray-300";
+  };
+
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case "Live":
+        return <Globe className="animate-bounce text-white w-4 h-4 mr-1" />;
+      case "In Progress":
+        return <RefreshCcw className="animate-spin text-white w-4 h-4 mr-1" />;
+      case "Completed":
+        return <CheckCircle className="text-white w-4 h-4 mr-1" />;
+      default:
+        return null;
+    }
+  };
+
+  const getIcon = (stack: string) => {
+    if (stack === "Frontend") return <Monitor className="w-4 h-4 mr-1" />;
+    if (stack === "Backend") return <Server className="w-4 h-4 mr-1" />;
+    if (stack === "FullStack") return <GitBranch className="w-4 h-4 mr-1" />;
+    return null;
+  };
 
   if (loading) {
     return (
       <section className="relative py-20 overflow-hidden">
         {/* Tech Icons Pattern Background */}
         <div className="absolute inset-0 bg-white dark:bg-gray-900">
-          <div className="absolute inset-0 opacity-5 dark:opacity-10">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23374151' fillOpacity='1'%3E%3Cpath d='M20 20h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92zM20 44h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92zM20 68h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92zM20 92h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92z'/%3E%3C/g%3E%3C/svg%3E")`,
-                backgroundSize: "120px 120px",
-                animation: "float 32s ease-in-out infinite",
-              }}
-            ></div>
-          </div>
+          <div className="absolute inset-0 opacity-5 dark:opacity-10"></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -216,73 +253,6 @@ export function Projects() {
 
   return (
     <section className="relative py-20 overflow-hidden">
-      {/* Tech Icons Pattern Background */}
-      <div className="absolute inset-0 bg-white dark:bg-gray-900">
-        {/* Animated Tech Icons Grid */}
-        <div className="absolute inset-0 opacity-5 dark:opacity-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23374151' fillOpacity='1'%3E%3Cpath d='M20 20h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92zM20 44h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92zM20 68h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92zM20 92h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92z'/%3E%3C/g%3E%3C/svg%3E")`,
-              backgroundSize: "120px 120px",
-              animation: "float 32s ease-in-out infinite",
-            }}
-          ></div>
-        </div>
-
-        {/* Floating Tech Icons */}
-        <div className="absolute top-16 left-16 text-gray-400/8 dark:text-gray-600/12 animate-pulse">
-          <Code className="w-16 h-16" />
-        </div>
-        <div className="absolute top-32 right-20 text-gray-400/8 dark:text-gray-600/12 animate-bounce">
-          <Github className="w-14 h-14" />
-        </div>
-        <div
-          className="absolute bottom-20 left-20 text-gray-400/8 dark:text-gray-600/12 animate-pulse"
-          style={{ animationDelay: "1s" }}
-        >
-          <Terminal className="w-12 h-12" />
-        </div>
-        <div
-          className="absolute bottom-32 right-16 text-gray-400/8 dark:text-gray-600/12 animate-bounce"
-          style={{ animationDelay: "0.5s" }}
-        >
-          <Database className="w-10 h-10" />
-        </div>
-        <div
-          className="absolute top-1/2 left-10 text-gray-400/8 dark:text-gray-600/12 animate-pulse"
-          style={{ animationDelay: "2s" }}
-        >
-          <Server className="w-12 h-12" />
-        </div>
-        <div
-          className="absolute top-2/3 right-10 text-gray-400/8 dark:text-gray-600/12 animate-bounce"
-          style={{ animationDelay: "1.5s" }}
-        >
-          <Layers className="w-8 h-8" />
-        </div>
-        <div
-          className="absolute bottom-1/3 left-1/4 text-gray-400/8 dark:text-gray-600/12 animate-pulse"
-          style={{ animationDelay: "0.8s" }}
-        >
-          <GitBranch className="w-10 h-10" />
-        </div>
-
-        {/* Code Symbols */}
-        <div className="absolute top-1/4 right-1/3 text-lg text-gray-400/12 dark:text-gray-600/15 font-mono animate-pulse select-none pointer-events-none">
-          {"{ }"}
-        </div>
-        <div className="absolute bottom-1/4 left-1/3 text-md text-gray-400/12 dark:text-gray-600/15 font-mono animate-bounce select-none pointer-events-none">
-          {"</>"}
-        </div>
-        <div
-          className="absolute top-1/3 left-1/2 text-sm text-gray-400/12 dark:text-gray-600/15 font-mono animate-pulse select-none pointer-events-none"
-          style={{ animationDelay: "1.2s" }}
-        >
-          {"=>"}
-        </div>
-      </div>
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -307,6 +277,22 @@ export function Projects() {
                   alt={project.title}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
+              </div>
+
+              <div
+                className={`${getBgClass(
+                  project.status
+                )} absolute top-2 right-2 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center`}
+              >
+                {/* <Sparkles className="w-3 h-3 mr-1" /> */}
+                {getStatusIcon(project.status)}
+                {project.status || "In Progress"}
+              </div>
+
+              <div className="absolute top-2 left-2 bg-white text-black px-2 py-1 rounded-full text-xs font-semibold flex items-center">
+                {/* <Sparkles className="w-3 h-3 mr-1" /> */}
+                {getIcon(project.stack)}
+                {project.stack || "Full Stack"}
               </div>
               <CardHeader>
                 <CardTitle>{project.title}</CardTitle>

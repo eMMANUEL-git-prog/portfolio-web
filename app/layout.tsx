@@ -5,6 +5,8 @@ import "./globals.css";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import { Logo } from "@/components/Logo";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" type="image/svg+xml" href="<Logo />" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
@@ -30,6 +35,7 @@ export default function RootLayout({
         >
           <AuthProvider>
             {children}
+            <WhatsAppButton />
             <Toaster />
           </AuthProvider>
         </ThemeProvider>

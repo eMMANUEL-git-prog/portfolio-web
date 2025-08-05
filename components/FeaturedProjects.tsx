@@ -7,6 +7,15 @@ import {
   Terminal,
   Database,
   Layers,
+  Globe,
+  Loader,
+  Clock,
+  RefreshCcw,
+  CalendarClock,
+  CheckCircle,
+  Monitor,
+  Server,
+  GitBranch,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,10 +31,10 @@ import Link from "next/link";
 export function FeaturedProjects() {
   const featuredProjects = [
     {
-      title: "TaskFlow - AI-Enhanced Project Management",
+      title: "AmbaleStates - Real Estate Management",
       description:
-        "Real-time collaboration platform with AI-powered task suggestions, smart scheduling, and automated progress tracking.",
-      image: "/placeholder2.jpg?height=200&width=300",
+        "A real estate management platform designed for seamless property listing, tenant tracking, and lease management. Built with a user-friendly interface and scalable architecture, it empowers property managers and realtors to efficiently handle operations, from property onboarding to client communication.",
+      image: "/projects/ambalestates.png?height=200&width=300",
       technologies: [
         "React",
         "Node.js",
@@ -35,29 +44,35 @@ export function FeaturedProjects() {
       ],
       githubUrl: "https://github.com/emmanuel19727/taskflow-app",
       liveUrl: "https://taskflow-demo.vercel.app",
-      aiEnhanced: true,
+      stack: "Frontend",
+      status: "In Progress",
+      aiEnhanced: false,
+      ongoing: false,
     },
     {
-      title: "EcoMart - Smart E-commerce Platform",
+      title: "Bobby Furniture - eCommerce Platform",
       description:
-        "Sustainable e-commerce with AI-powered product recommendations, automated inventory management, and smart pricing.",
-      image: "/placeholder2.jpg?height=200&width=300",
+        "An e-commerce platform for furniture retail offering seamless product browsing, efficient inventory management, and smart pricing strategies to provide a smooth shopping experience.",
+      image: "/projects/bobby.png?height=200&width=300",
       technologies: [
-        "Next.js",
-        "TypeScript",
-        "Stripe",
-        "Prisma",
+        "React",
+        "JavaScript",
+        "Node.js",
+        "PostgreSQL",
         "AI Analytics",
       ],
       githubUrl: "https://github.com/emmanuel19727/ecomart-ecommerce",
-      liveUrl: "https://ecomart-kenya.vercel.app",
-      aiEnhanced: true,
+      liveUrl: "https://www.bobbyfurniturekenya.com/",
+      stack: "FullStack",
+      status: "Live",
+      aiEnhanced: false,
+      ongoing: false,
     },
     {
-      title: "DevConnect - AI-Powered Developer Hub",
+      title: "eUNITA - Software Company",
       description:
-        "Social platform for developers with AI code review, intelligent skill matching, and automated project suggestions.",
-      image: "/placeholder2.jpg?height=200&width=300",
+        "eUNITA is a modern software development company I founded, focused on building scalable, user-centric digital solutions. From web and mobile apps to backend systems, eUNITA emphasizes clean code, efficient architecture, and innovation-driven development.",
+      image: "/projects/eunita.png?height=200&width=300",
       technologies: [
         "Next.js",
         "Socket.io",
@@ -67,68 +82,46 @@ export function FeaturedProjects() {
       ],
       githubUrl: "https://github.com/emmanuel19727/devconnect-platform",
       liveUrl: "https://devconnect-kenya.vercel.app",
-      aiEnhanced: true,
+      stack: "FullStack",
+      status: "Completed",
+      aiEnhanced: false,
+      ongoing: false,
     },
   ];
 
+  const getBgClass = (status: string): string => {
+    if (status === "Live") return "bg-green-500";
+    if (status === "In Progress") return "bg-yellow-500";
+    if (status === "Completed") return "bg-blue-500";
+    return "bg-gray-300";
+  };
+
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case "Live":
+        return <Globe className="animate-bounce text-white w-4 h-4 mr-1" />;
+      case "In Progress":
+        return <Loader className="animate-spin text-white w-4 h-4 mr-1" />;
+      case "Completed":
+        return <CheckCircle className="text-white w-4 h-4 mr-1" />;
+      default:
+        return null;
+    }
+  };
+
+  const getIcon = (stack: string) => {
+    if (stack === "Frontend") return <Monitor className="w-4 h-4 mr-1" />;
+    if (stack === "Backend") return <Server className="w-4 h-4 mr-1" />;
+    if (stack === "FullStack") return <GitBranch className="w-4 h-4 mr-1" />;
+    return null;
+  };
+
   return (
     <section className="relative py-20 overflow-hidden">
-      {/* Tech Icons Pattern Background */}
-      <div className="absolute inset-0 bg-white dark:bg-gray-900">
-        {/* Animated Tech Icons Grid */}
-        <div className="absolute inset-0 opacity-5 dark:opacity-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23374151' fillOpacity='1'%3E%3Cpath d='M20 20h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92zM20 44h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92zM20 68h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92zM20 92h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92z'/%3E%3C/g%3E%3C/svg%3E")`,
-              backgroundSize: "120px 120px",
-              animation: "float 35s ease-in-out infinite",
-            }}
-          ></div>
-        </div>
-
-        {/* Floating Tech Icons */}
-        <div className="absolute top-16 right-16 text-gray-400/8 dark:text-gray-600/12 animate-pulse">
-          <Code className="w-14 h-14" />
-        </div>
-        <div
-          className="absolute bottom-16 left-16 text-gray-400/8 dark:text-gray-600/12 animate-bounce"
-          style={{ animationDelay: "1s" }}
-        >
-          <Github className="w-12 h-12" />
-        </div>
-        <div
-          className="absolute top-1/3 left-10 text-gray-400/8 dark:text-gray-600/12 animate-pulse"
-          style={{ animationDelay: "2s" }}
-        >
-          <Terminal className="w-10 h-10" />
-        </div>
-        <div
-          className="absolute bottom-1/3 right-10 text-gray-400/8 dark:text-gray-600/12 animate-bounce"
-          style={{ animationDelay: "0.5s" }}
-        >
-          <Database className="w-12 h-12" />
-        </div>
-        <div
-          className="absolute top-2/3 right-1/4 text-gray-400/8 dark:text-gray-600/12 animate-pulse"
-          style={{ animationDelay: "1.5s" }}
-        >
-          <Layers className="w-8 h-8" />
-        </div>
-
-        {/* Code Symbols */}
-        <div className="absolute top-1/4 right-1/3 text-lg text-gray-400/12 dark:text-gray-600/15 font-mono animate-pulse select-none pointer-events-none">
-          {"{ }"}
-        </div>
-        <div className="absolute bottom-1/4 left-1/3 text-md text-gray-400/12 dark:text-gray-600/15 font-mono animate-bounce select-none pointer-events-none">
-          {"</>"}
-        </div>
-      </div>
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            AI-Enhanced Featured Projects
+            Featured Projects
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Here are some of my recent projects that showcase the power of
@@ -154,6 +147,28 @@ export function FeaturedProjects() {
                     AI-Enhanced
                   </div>
                 )}
+                {project.ongoing && (
+                  <div className="absolute top-2 right-2 bg-gradient-to-r from-red-400 to-orange-500 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center">
+                    <Sparkles className="w-3 h-3 mr-1" />
+                    Ongoing
+                  </div>
+                )}
+
+                <div
+                  className={`${getBgClass(
+                    project.status
+                  )} absolute top-2 right-2 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center`}
+                >
+                  {/* <Sparkles className="w-3 h-3 mr-1" /> */}
+                  {getStatusIcon(project.status)}
+                  {project.status || "In Progress"}
+                </div>
+
+                <div className="absolute top-2 left-2 bg-white text-black px-2 py-1 rounded-full text-xs font-semibold flex items-center">
+                  {/* <Sparkles className="w-3 h-3 mr-1" /> */}
+                  {getIcon(project.stack)}
+                  {project.stack || "Full Stack"}
+                </div>
               </div>
               <CardHeader>
                 <CardTitle className="group-hover:text-blue-600 transition-colors">
@@ -215,7 +230,7 @@ export function FeaturedProjects() {
             className="group bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm"
           >
             <Link href="/projects">
-              View All AI-Enhanced Projects
+              View All Projects
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>

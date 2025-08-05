@@ -98,61 +98,6 @@ export function TechStack() {
 
   return (
     <section className="relative py-20 overflow-hidden">
-      {/* Tech Icons Pattern Background */}
-      <div className="absolute inset-0 bg-gray-50 dark:bg-gray-900">
-        {/* Animated Tech Icons Grid */}
-        <div className="absolute inset-0 opacity-5 dark:opacity-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23374151' fillOpacity='1'%3E%3Cpath d='M20 20h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92zM20 44h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92zM20 68h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92zM20 92h16v16H20zm24 0h16v16H44zm24 0h16v16H68zm24 0h16v16H92z'/%3E%3C/g%3E%3C/svg%3E")`,
-              backgroundSize: "120px 120px",
-              animation: "float 30s ease-in-out infinite",
-            }}
-          ></div>
-        </div>
-
-        {/* Floating Tech Icons */}
-        <div className="absolute top-10 left-10 text-gray-400/8 dark:text-gray-600/12 animate-pulse">
-          <Github className="w-16 h-16" />
-        </div>
-        <div className="absolute top-20 right-20 text-gray-400/8 dark:text-gray-600/12 animate-bounce">
-          <Terminal className="w-12 h-12" />
-        </div>
-        <div
-          className="absolute bottom-20 left-1/4 text-gray-400/8 dark:text-gray-600/12 animate-pulse"
-          style={{ animationDelay: "1s" }}
-        >
-          <Database className="w-14 h-14" />
-        </div>
-        <div
-          className="absolute bottom-10 right-1/4 text-gray-400/8 dark:text-gray-600/12 animate-bounce"
-          style={{ animationDelay: "0.5s" }}
-        >
-          <Cpu className="w-10 h-10" />
-        </div>
-        <div
-          className="absolute top-1/3 right-10 text-gray-400/8 dark:text-gray-600/12 animate-pulse"
-          style={{ animationDelay: "2s" }}
-        >
-          <Layers className="w-12 h-12" />
-        </div>
-        <div
-          className="absolute bottom-1/3 left-10 text-gray-400/8 dark:text-gray-600/12 animate-bounce"
-          style={{ animationDelay: "1.5s" }}
-        >
-          <GitBranch className="w-10 h-10" />
-        </div>
-
-        {/* Code Symbols */}
-        <div className="absolute top-1/4 left-1/3 text-xl text-gray-400/12 dark:text-gray-600/15 font-mono animate-pulse select-none pointer-events-none">
-          {"{ }"}
-        </div>
-        <div className="absolute bottom-1/4 right-1/3 text-lg text-gray-400/12 dark:text-gray-600/15 font-mono animate-bounce select-none pointer-events-none">
-          {"</>"}
-        </div>
-      </div>
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
