@@ -17,6 +17,7 @@ export function CallToAction() {
     <section className="relative py-20 overflow-hidden">
       {/* Tech Icons Pattern Background */}
       <div className="absolute inset-0 bg-blue-800 dark:bg-black"></div>
+      <div className="absolute inset-0 bg-blue-600 dark:bg-blue-800"></div>
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <Card className="bg-white/15 backdrop-blur-md border-white/20 shadow-2xl">
