@@ -92,7 +92,7 @@ export function Projects() {
         "Tailwind CSS",
         "Chart.js",
       ],
-      githubUrl: "https://github.com/emmanuel19727/taskflow-app",
+      githubUrl: "",
       liveUrl: "https://taskflow-demo.vercel.app",
       stack: "Frontend",
       status: "In Progress",
@@ -176,17 +176,17 @@ export function Projects() {
         "Twilio",
         "Express",
       ],
-      githubUrl: "https://github.com/emmanuel19727/weatherwise-app",
+      githubUrl: "",
       liveUrl: "https://weatherwise-kenya.netlify.app",
       stack: "FullStack",
       status: "In Progress",
     },
     {
       _id: "6",
-      title: "LearnHub - Online Learning Platform",
+      title: "WestCounty - Multi-vendor ecommerce",
       description:
-        "A comprehensive e-learning platform with course creation tools, video streaming, progress tracking, quizzes, certificates, and payment integration. Designed specifically for African educational content.",
-      image: "/placeholder2.jpg?height=300&width=400",
+        "A full-scale multi-vendor e-commerce platform built to empower sellers and streamline the online shopping experience. Featuring dynamic product catalogs, vendor-specific dashboards, secure payment integration, and responsive design, West County delivers performance, scalability, and ease of use for both merchants and customers.",
+      image: "/projects/west-county.png?height=300&width=400",
       technologies: [
         "Next.js",
         "TypeScript",
@@ -197,7 +197,7 @@ export function Projects() {
         "NextAuth",
         "Tailwind CSS",
       ],
-      githubUrl: "https://github.com/emmanuel19727/learnhub-platform",
+      githubUrl: "",
       liveUrl: "https://learnhub-africa.vercel.app",
       stack: "FullStack",
       status: "In Progress",
@@ -289,7 +289,7 @@ export function Projects() {
                 {project.status || "In Progress"}
               </div>
 
-              <div className="absolute top-2 left-2 bg-white text-black px-2 py-1 rounded-full text-xs font-semibold flex items-center">
+              <div className="absolute top-2 left-2 bg-white border border-blue-600 text-black px-2 py-1 rounded-full text-xs font-semibold flex items-center">
                 {/* <Sparkles className="w-3 h-3 mr-1" /> */}
                 {getIcon(project.stack)}
                 {project.stack || "Full Stack"}
@@ -310,7 +310,12 @@ export function Projects() {
                   ))}
                 </div>
                 <div className="flex gap-2">
-                  <Button variant="outline" size="sm" asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    asChild
+                    className="cursor-not-allowed"
+                  >
                     <a
                       href={project.githubUrl}
                       target="_blank"
