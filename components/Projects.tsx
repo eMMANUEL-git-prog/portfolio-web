@@ -202,6 +202,27 @@ export function Projects() {
       stack: "FullStack",
       status: "In Progress",
     },
+    {
+      _id: "7",
+      title: "ZuriWear - Fashion ecommerce",
+      description:
+        "A full-scale multi-vendor e-commerce platform built to empower sellers and streamline the online shopping experience. Featuring dynamic product catalogs, vendor-specific dashboards, secure payment integration, and responsive design, West County delivers performance, scalability, and ease of use for both merchants and customers.",
+      image: "/projects/zuri3.png?height=300&width=400",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Prisma",
+        "Stripe",
+        "AWS S3",
+        "NextAuth",
+        "Tailwind CSS",
+      ],
+      githubUrl: "",
+      liveUrl: "https://learnhub-africa.vercel.app",
+      stack: "FullStack",
+      status: "In Progress",
+    },
   ];
 
   const getBgClass = (status: string): string => {
