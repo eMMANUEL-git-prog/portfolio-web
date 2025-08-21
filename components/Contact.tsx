@@ -117,7 +117,7 @@ export function Contact() {
                 <div>
                   <p className="font-medium">Phone</p>
                   <p className="text-gray-600 dark:text-gray-300">
-                    +254 713 616 998
+                    +254 713 616 998 / +254 795 198 141
                   </p>
                 </div>
               </div>
